@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.86f9a4cc.css",
-    "main.js": "/static/js/main.60554749.js",
+    "main.css": "/static/css/main.3cdeee30.css",
+    "main.js": "/static/js/main.889bdbb3.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
-    "static/media/photography.png": "/static/media/photography.aef121b45b6a4f132e9d.png",
-    "static/media/codeEditor.png": "/static/media/codeEditor.1b585492490c8c1cace9.png",
+    "static/media/phishing_app_1776153618218.png": "/static/media/phishing_app_1776153618218.538e753c2c306991053d.png",
+    "static/media/scene_forge_1776153718458.png": "/static/media/scene_forge_1776153718458.a3f90daefbdfb22b6066.png",
+    "static/media/life_admin_1776153732557.png": "/static/media/life_admin_1776153732557.cecd59cb86447cb63513.png",
+    "static/media/agentic_rag_1776153682313.png": "/static/media/agentic_rag_1776153682313.0414303282031caa2a63.png",
+    "static/media/intelligent_data_ui_1776153574776.png": "/static/media/intelligent_data_ui_1776153574776.e64d1f1edfdb0a5ed06b.png",
+    "static/media/spreado_app_1776153602124.png": "/static/media/spreado_app_1776153602124.403720ef15079f01d9fa.png",
     "static/media/home-main.svg": "/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
     "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
     "static/media/Tushar Resume2.pdf": "/static/media/Tushar Resume2.1b4ea0d7ab6fe4b0fb83.pdf",
-    "static/media/car.png": "/static/media/car.aacebd71fae8bef6392d.png",
     "index.html": "/index.html",
-    "main.86f9a4cc.css.map": "/static/css/main.86f9a4cc.css.map",
-    "main.60554749.js.map": "/static/js/main.60554749.js.map",
+    "main.3cdeee30.css.map": "/static/css/main.3cdeee30.css.map",
+    "main.889bdbb3.js.map": "/static/js/main.889bdbb3.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.86f9a4cc.css",
-    "static/js/main.60554749.js"
+    "static/css/main.3cdeee30.css",
+    "static/js/main.889bdbb3.js"
   ]
 }

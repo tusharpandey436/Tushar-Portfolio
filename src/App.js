@@ -1,9 +1,8 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AiFillGithub,
   AiFillInstagram,
   AiOutlineArrowDown,
-  AiOutlineArrowRight,
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -18,12 +17,13 @@ import { HiSparkles } from "react-icons/hi2";
 import heroArtwork from "./Assets/home-main.svg";
 import aboutArtwork from "./Assets/about.png";
 import resumePdf from "./Assets/Tushar Resume2.pdf";
-import photographyImage from "./Assets/Projects/photography.png";
-import financeImage from "./Assets/Projects/finance.png";
-import editorImage from "./Assets/Projects/codeEditor.png";
-import carpoolImage from "./Assets/Projects/car.png";
-import musicImage from "./Assets/Projects/music.png";
-import attendanceImage from "./Assets/Projects/attendence.png";
+import intelligentDataImage from "./Assets/Projects/intelligent_data_ui_1776153574776.png";
+import spreadoImage from "./Assets/Projects/spreado_app_1776153602124.png";
+import phishingImage from "./Assets/Projects/phishing_app_1776153618218.png";
+import sceneForgeImage from "./Assets/Projects/scene_forge_1776153718458.png";
+import agenticRagImage from "./Assets/Projects/agentic_rag_1776153682313.png";
+import lifeAdminImage from "./Assets/Projects/life_admin_1776153732557.png";
+
 import "./App.css";
 
 const navigation = [
@@ -37,7 +37,7 @@ const navigation = [
 const socialLinks = [
   {
     label: "GitHub",
-    href: "https://github.com/Tusharpandey716",
+    href: "https://github.com/tusharpandey436",
     icon: <AiFillGithub />,
   },
   {
@@ -58,33 +58,33 @@ const socialLinks = [
 ];
 
 const roles = [
-  "Full-stack builder",
-  "Frontend experience crafter",
-  "AI-curious product engineer",
-  "Developer tool maker",
+  "AI Engineer & Backend Architect",
+  "RAG Systems Builder",
+  "LLM Orchestrator",
+  "Production AI Specialist",
 ];
 
 const spotlightItems = [
-  "React interfaces with intent",
-  "Node.js and backend logic",
-  "LLM-powered product concepts",
-  "Visual storytelling on the web",
-  "Rapid prototyping and iteration",
-  "Clean developer experience",
+  "Scalable RAG Pipelines",
+  "LLM Orchestration & Hybrid Retrieval",
+  "FastAPI & Backend Architecture",
+  "Vector Search & Agentic AI",
+  "Production AI Systems",
+  "Systems Design & API Engineering",
 ];
 
 const skillBands = [
   {
-    title: "Build",
-    text: "React, JavaScript, Node.js, MongoDB, PostgreSQL, Firebase",
+    title: "AI & Data",
+    text: "LangChain, Gemini, OpenAI, HuggingFace, Supabase, pgvector, FAISS",
   },
   {
-    title: "Think",
-    text: "Product strategy, storytelling, interaction design, user flow",
+    title: "Backend & Infra",
+    text: "FastAPI, Python, Node.js, Docker, Nginx, Redis, PostgreSQL",
   },
   {
-    title: "Explore",
-    text: "AI experiences, computer vision, developer tools, automation ideas",
+    title: "Architecture",
+    text: "RAG Systems, Vector Search, LLM Orchestration, System Design",
   },
 ];
 
@@ -109,9 +109,9 @@ const principles = [
 const timeline = [
   {
     label: "Where I am now",
-    heading: "Final-year B.Tech student at Alliance University, Bangalore",
+    heading: "B.Tech Graduate from Alliance University, Bangalore",
     body:
-      "Building stronger frontend instincts while continuing to ship practical software projects across web and AI-adjacent domains.",
+      "Architecting scalable RAG systems and production AI pipelines, pushing beyond proof-of-concepts into robust engineering.",
   },
   {
     label: "How I work",
@@ -129,77 +129,104 @@ const timeline = [
 
 const projects = [
   {
-    title: "Photography Website",
-    category: "Visual storytelling",
+    title: "Agentic_RAG",
+    category: "AI & Graph Models",
     year: "2024",
-    image: photographyImage,
+    image: agenticRagImage,
+    isFlagship: true,
     blurb:
-      "A portfolio-led photography experience focused on presentation, gallery rhythm, and visual atmosphere.",
+      "Visual orchestration of cognitive agent networks using Retrieval-Augmented Generation.",
     deepDive:
-      "Built to spotlight imagery with clean composition, responsive behavior, and a more editorial approach to browsing work.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/Tusharpandey716/photography_website-",
-    live: "https://ornate-kangaroo-4dddee.netlify.app/",
+      "Orchestrating interconnected nodes of LLMs. Focuses on modular reasoning pipelines rather than simple chat loops.",
+    tech: ["Python", "AI", "RAG"],
+    github: "https://github.com/tusharpandey436/Agentic_RAG",
   },
   {
-    title: "Finance Tracker",
-    category: "Full-stack product",
+    title: "intelligent-data-ui",
+    category: "Data Visualization",
     year: "2024",
-    image: financeImage,
+    image: intelligentDataImage,
     blurb:
-      "A MERN personal finance app for tracking expenses, budgets, and visibility into spending patterns.",
+      "A dashboard interface displaying intelligent analytics data and components using a clean tech aesthetic.",
     deepDive:
-      "The core value is clarity: fast transaction management, useful dashboard behavior, and a practical workflow around money tracking.",
-    tech: ["MongoDB", "Express", "React", "Node.js"],
-    github: "https://github.com/Tusharpandey716/Finance-Tracker",
+      "Built with TypeScript. Aimed at making complex data accessible and beautifully presented through polished components and charts.",
+    tech: ["TypeScript", "UI/UX", "Data"],
+    github: "https://github.com/tusharpandey436/intelligent-data-ui",
   },
   {
-    title: "Editor.io",
-    category: "Developer tooling",
+    title: "Spreado_App",
+    category: "Productivity",
     year: "2024",
-    image: editorImage,
+    image: spreadoImage,
     blurb:
-      "An online code and markdown editor with instant preview and local persistence for makers.",
+      "A beautiful and minimal productivity application interface modeled after dynamic spreadsheets.",
     deepDive:
-      "This project leans into workflow utility, fast feedback, and an interface that supports experimentation without friction.",
-    tech: ["React", "Markdown", "Local Storage"],
-    github: "https://github.com/Tusharpandey716/Editor-io",
+      "Features a clean UI and streamlined workflow. It's meant to reduce cognitive load while managing data heavy tasks smoothly.",
+    tech: ["TypeScript", "Frontend"],
+    github: "https://github.com/tusharpandey436/Spreado_App",
   },
   {
-    title: "CarPooling",
-    category: "System design",
-    year: "2023",
-    image: carpoolImage,
+    title: "PhishingApp2",
+    category: "Cybersecurity",
+    year: "2024",
+    image: phishingImage,
     blurb:
-      "A Java-based ride-sharing concept centered on route matching and practical user coordination.",
+      "A threat detection dashboard focusing on identifying and mitigating phishing attacks.",
     deepDive:
-      "It brings together logic, planning, and usability to turn a system problem into a cleaner end-user workflow.",
-    tech: ["Java", "Algorithms", "User Flow"],
-    github: "https://github.com/Tusharpandey716/Carpooling",
+      "Built with a strong operational aesthetic. Leverages TypeScript to visualize digital security health with zero friction.",
+    tech: ["TypeScript", "Security"],
+    github: "https://github.com/tusharpandey436/PhishingApp2",
   },
   {
-    title: "Music Player",
-    category: "Media experience",
-    year: "2023",
-    image: musicImage,
+    title: "SceneForge",
+    category: "3D Rendering Tooling",
+    year: "2024",
+    image: sceneForgeImage,
     blurb:
-      "A Django-driven music player with playlist flow, browsing, and playback controls.",
+      "A sophisticated 3D scene generation interface and workspace for rendered graphical elements.",
     deepDive:
-      "Designed around smooth organization and listening rather than just basic file handling or playback toggles.",
-    tech: ["Django", "Python", "Interface Design"],
-    github: "https://github.com/Tusharpandey716/Music_Player",
+      "A split-pane editor concept to seamlessly build out and interact with synthetic scene environments natively on the web.",
+    tech: ["Python", "3D Tooling"],
+    github: "https://github.com/tusharpandey436/SceneForge",
   },
   {
-    title: "Smart Attendance System",
-    category: "AI / computer vision",
-    year: "2023",
-    image: attendanceImage,
+    title: "life-admin-agent",
+    category: "Personal Automation",
+    year: "2024",
+    image: lifeAdminImage,
     blurb:
-      "An OpenCV-based attendance workflow that uses face recognition to reduce manual work.",
+      "An automated life administration tracker for schedules, events, and essential habits.",
     deepDive:
-      "Focused on accuracy, efficiency, and translating a technical vision concept into a practical operational system.",
-    tech: ["Python", "OpenCV", "Recognition"],
-    github: "https://github.com/Tusharpandey716/Smart_Attendance_System",
+      "A Python-based architecture meant to gracefully organize personal scheduling elements, balancing aesthetic lightness with robust code.",
+    tech: ["Python", "Automation"],
+    github: "https://github.com/tusharpandey436/life-admin-agent",
+  },
+  {
+    title: "Ai_Data_Fetcher",
+    category: "AI Data Pipeline",
+    year: "2024",
+    image: null,
+    gradient: "linear-gradient(135deg, #0d1f3c 0%, #00f7ff44 100%)",
+    blurb:
+      "Automated AI data fetching and aggregation platform pulling live data through intelligent pipelines.",
+    deepDive:
+      "TypeScript-powered. Features a fully modular fetcher design with clean async pipelines and real-time aggregation.",
+    tech: ["TypeScript", "AI", "Automation"],
+    github: "https://github.com/tusharpandey436/Ai_Data_Fetcher",
+    live: "https://ai-data-fetcher.vercel.app",
+  },
+  {
+    title: "Animated_video_maker",
+    category: "Creative Tools",
+    year: "2024",
+    image: null,
+    gradient: "linear-gradient(135deg, #1a0030 0%, #8b5cf660 100%)",
+    blurb:
+      "Automated animated video creation pipeline. Turns scripts and data into cinematic scenes via Python.",
+    deepDive:
+      "Driven by LLM-generated scene descriptions and a multi-stage rendering engine. Production-ready pipeline for non-linear video generation.",
+    tech: ["Python", "LLM", "Video"],
+    github: "https://github.com/tusharpandey436/Animated_video_maker",
   },
 ];
 
@@ -208,15 +235,12 @@ function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [progress, setProgress] = useState(0);
   const [roleIndex, setRoleIndex] = useState(0);
-  const [featuredProject, setFeaturedProject] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("All");
   const [timeLabel, setTimeLabel] = useState("");
   const [pointer, setPointer] = useState({ x: 50, y: 20 });
 
-  const featured = projects[featuredProject];
-  const projectPreview = useMemo(
-    () => projects.filter((_, index) => index !== featuredProject).slice(0, 3),
-    [featuredProject]
-  );
+  const projectCategories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+  const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -277,8 +301,8 @@ function App() {
         });
       },
       {
-        threshold: 0.35,
-        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.15,
+        rootMargin: "0px 0px -5% 0px",
       }
     );
 
@@ -313,7 +337,7 @@ function App() {
           <span className="brand-mark">TP</span>
           <span className="brand-copy">
             <strong>Tushar Pandey</strong>
-            <small>Creative full-stack developer</small>
+            <small>AI Engineer & Backend Architect</small>
           </span>
         </a>
 
@@ -349,17 +373,16 @@ function App() {
             <div className="hero-intro">
               <span className="eyebrow">
                 <HiSparkles />
-                Portfolio reimagined with stronger motion and identity
+                Architecting Production AI — not just demos, real systems.
               </span>
               <h1>
-                Digital experiences
+                Intelligent systems
                 <span> with edge, elegance, and energy.</span>
               </h1>
               <p className="hero-copy-text">
-                I&apos;m Tushar Pandey from Uttarakhand, currently in my final
-                year at Alliance University, Bangalore. I build web products,
-                explore AI-driven ideas, and care about making interfaces feel
-                unforgettable rather than merely usable.
+                I&apos;m Tushar Pandey from Uttarakhand, a recent B.Tech graduate from
+                Alliance University, Bangalore. I am an AI Engineer & Backend Architect
+                focused on building scalable RAG systems and production AI pipelines.
               </p>
             </div>
 
@@ -451,7 +474,7 @@ function App() {
               </p>
               <div className="signature-line">
                 <span>From Uttarakhand</span>
-                <span>Final-year B.Tech</span>
+                <span>B.Tech Graduate</span>
                 <span>Alliance University</span>
               </div>
             </article>
@@ -479,89 +502,79 @@ function App() {
         <section className="showcase reveal section-shell" id="showcase" data-section>
           <div className="section-heading">
             <span className="section-tag">Showcase</span>
-            <h2>Selected work, presented like it matters.</h2>
+            <h2>Every build, every idea — all of them.</h2>
             <p>
-              I turned this section into a spotlight instead of a wall of equal
-              cards so the portfolio has hierarchy, rhythm, and more presence.
+              A complete look at the systems, tools, and AI-powered products I've shipped.
             </p>
           </div>
 
-          <div className="showcase-grid">
-            <article className="featured-project glass-panel">
-              <div className="featured-image">
-                <img src={featured.image} alt={featured.title} />
-                <div className="featured-badge">
-                  <span>{featured.category}</span>
-                  <strong>{featured.year}</strong>
-                </div>
-              </div>
+          <div className="filter-bar">
+            {projectCategories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                className={`filter-btn${activeFilter === cat ? " filter-btn--active" : ""}`}
+                onClick={() => setActiveFilter(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-              <div className="featured-body">
-                <div className="featured-header">
-                  <div>
-                    <span className="micro-label">Featured build</span>
-                    <h3>{featured.title}</h3>
-                  </div>
-                  <button
-                    className="cycle-button"
-                    type="button"
-                    onClick={() =>
-                      setFeaturedProject((current) => (current + 1) % projects.length)
-                    }
-                  >
-                    Next project
-                    <AiOutlineArrowRight />
-                  </button>
-                </div>
-
-                <p className="featured-lead">{featured.blurb}</p>
-                <p>{featured.deepDive}</p>
-
-                <div className="chip-row">
-                  {featured.tech.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-
-                <div className="project-links">
-                  <a href={featured.github} target="_blank" rel="noreferrer">
-                    Source
-                    <FiExternalLink />
-                  </a>
-                  {featured.live ? (
-                    <a href={featured.live} target="_blank" rel="noreferrer">
-                      Live demo
-                      <FiExternalLink />
-                    </a>
-                  ) : (
-                    <span className="muted-link">Concept / repository showcase</span>
-                  )}
-                </div>
-              </div>
-            </article>
-
-            <aside className="project-rail">
-              {projectPreview.map((project) => {
-                const projectIndex = projects.findIndex(
-                  (item) => item.title === project.title
-                );
-
-                return (
-                  <button
-                    key={project.title}
-                    className="rail-card glass-panel"
-                    type="button"
-                    onClick={() => setFeaturedProject(projectIndex)}
-                  >
+          <div className="bento-grid">
+            {filteredProjects.map((project, i) => (
+              <article
+                key={project.title}
+                className={`bento-card glass-panel${i === 0 && activeFilter === "All" ? " bento-card--wide" : ""}`}
+              >
+                <div
+                  className="bento-thumb"
+                  style={{
+                    background: project.image
+                      ? undefined
+                      : project.gradient,
+                  }}
+                >
+                  {project.image ? (
                     <img src={project.image} alt={project.title} />
-                    <div>
-                      <span>{project.category}</span>
-                      <strong>{project.title}</strong>
+                  ) : (
+                    <div className="bento-no-image">
+                      <span className="bento-initial">{project.title.charAt(0)}</span>
+                      <span className="bento-category-label">{project.category}</span>
                     </div>
-                  </button>
-                );
-              })}
-            </aside>
+                  )}
+                  <div className="bento-overlay">
+                    <div className="bento-links">
+                      <a href={project.github} target="_blank" rel="noreferrer" className="bento-link-btn">
+                        <AiFillGithub /> Source
+                      </a>
+                      {project.live && (
+                        <a href={project.live} target="_blank" rel="noreferrer" className="bento-link-btn bento-link-btn--accent">
+                          <FiExternalLink /> Live
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="bento-body">
+                  <div className="bento-meta">
+                    {project.isFlagship ? (
+                      <span className="bento-flagship-badge">Flagship Project</span>
+                    ) : (
+                      <span className="bento-cat">{project.category}</span>
+                    )}
+                    <span className="bento-year">{project.year}</span>
+                  </div>
+                  <h3 className="bento-title">{project.title}</h3>
+                  <p className="bento-blurb">{project.blurb}</p>
+                  <div className="chip-row">
+                    {project.tech.map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
