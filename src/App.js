@@ -27,6 +27,11 @@ import agenticRagImage from "./Assets/Projects/agentic_rag_1776153682313.png";
 import lifeAdminImage from "./Assets/Projects/life_admin_1776153732557.png";
 import aiDataFetcherImage from "./Assets/Projects/ai_data_fetcher.png";
 
+import Typewriter from "typewriter-effect";
+import Tilt from "react-parallax-tilt";
+import GitHubCalendar from "react-github-calendar";
+import Particles from "react-tsparticles";
+
 import "./App.css";
 
 const navigation = [
@@ -270,14 +275,7 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setRoleIndex((current) => (current + 1) % roles.length);
-    }, 2400);
-
-    return () => window.clearInterval(intervalId);
-  }, []);
-
+  // Theme and Scroll
   useEffect(() => {
     const formatter = new Intl.DateTimeFormat("en-IN", {
       hour: "numeric",
@@ -339,8 +337,41 @@ function App() {
       }}
     >
       <div className="progress-bar" style={{ width: `${progress}%` }} />
-      <div className="page-glow" aria-hidden="true" />
-      <div className="mesh-overlay" aria-hidden="true" />
+      <div className="aurora-bg" aria-hidden="true" />
+      <Particles
+        id="tsparticles"
+        className="particles-overlay"
+        options={{
+          fullScreen: { enable: false },
+          background: { color: { value: "transparent" } },
+          fpsLimit: 60,
+          interactivity: {
+            events: {
+              onHover: { enable: true, mode: "grab" },
+              resize: true,
+            },
+            modes: {
+              grab: { distance: 160, links: { opacity: 0.6 } },
+            },
+          },
+          particles: {
+            color: { value: "#8b5cf6" },
+            links: {
+              color: "#8b5cf6",
+              distance: 140,
+              enable: true,
+              opacity: 0.3,
+              width: 1,
+            },
+            move: { enable: true, speed: 1.2, direction: "none", random: false, straight: false, outModes: "out" },
+            number: { density: { enable: true, area: 1000 }, value: 50 },
+            opacity: { value: 0.5 },
+            shape: { type: "circle" },
+            size: { value: { min: 1, max: 3 } },
+          },
+          detectRetina: true,
+        }}
+      />
 
       <header className="topbar">
         <a className="brand" href="#home">
@@ -396,10 +427,20 @@ function App() {
               </p>
             </div>
 
-            <div className="role-strip glass-panel">
-              <span>Current mode</span>
-              <strong>{roles[roleIndex]}</strong>
-            </div>
+            <Tilt className="role-strip glass-panel" tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2500}>
+              <span>Current focus</span>
+              <strong>
+                <Typewriter
+                  options={{
+                    strings: roles,
+                    autoStart: true,
+                    loop: true,
+                    deleteSpeed: 40,
+                    delay: 60,
+                  }}
+                />
+              </strong>
+            </Tilt>
 
             <div className="hero-actions">
               <a className="primary-button" href="#showcase">
@@ -428,30 +469,32 @@ function App() {
 
           <div className="hero-right">
             <div className="hero-stage">
-              <div className="hero-panel large-panel glass-panel">
-                <div className="metric-line">
-                  <span>Based in</span>
-                  <strong>India</strong>
+              <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2000} className="tilt-hero-panel">
+                <div className="hero-panel large-panel glass-panel">
+                  <div className="metric-line">
+                    <span>Based in</span>
+                    <strong>India</strong>
+                  </div>
+                  <div className="metric-line">
+                    <span>Local time</span>
+                    <strong>{timeLabel || "Loading..."}</strong>
+                  </div>
+                  <div className="metric-line">
+                    <span>Open to</span>
+                    <strong>Opportunities and Collaborations</strong>
+                  </div>
                 </div>
-                <div className="metric-line">
-                  <span>Local time</span>
-                  <strong>{timeLabel || "Loading..."}</strong>
-                </div>
-                <div className="metric-line">
-                  <span>Open to</span>
-                  <strong>Opportunities and Collaborations</strong>
-                </div>
-              </div>
+              </Tilt>
 
-              <div className="hero-panel mini-panel accent-panel">
-                <span>Focus  </span>
-                <strong>Backend + AI-flavored product thinking</strong>
-              </div>
+              <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.05} className="hero-panel mini-panel accent-panel">
+                <span>Focus</span>
+                <strong>Frontend motion + AI-flavored product thinking</strong>
+              </Tilt>
 
-              <div className="hero-panel mini-panel quote-panel">
+              <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} scale={1.05} className="hero-panel mini-panel quote-panel">
                 <span>Approach </span>
                 <strong>Build something that actually feels different.</strong>
-              </div>
+              </Tilt>
 
               <div className="hero-figure">
                 <div className="figure-ring figure-ring-one" />
@@ -533,18 +576,27 @@ function App() {
                 style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
               >
                 {filteredProjects.map((project, i) => (
-                  <article
-                    key={project.title}
-                    className="carousel-slide bento-card glass-panel"
+                  <Tilt 
+                    key={project.title} 
+                    className="carousel-slide parallax-wrapper"
+                    tiltMaxAngleX={6} 
+                    tiltMaxAngleY={6} 
+                    scale={1.01} 
+                    transitionSpeed={2000}
+                    glareEnable={true}
+                    glareMaxOpacity={0.15}
+                    glareColor="#ffffff"
+                    glarePosition="all"
                   >
-                    <div
-                      className="bento-thumb"
-                      style={{
-                        background: project.image
-                          ? undefined
-                          : project.gradient,
-                      }}
-                    >
+                    <article className="bento-card glass-panel">
+                      <div
+                        className="bento-thumb"
+                        style={{
+                          background: project.image
+                            ? undefined
+                            : project.gradient,
+                        }}
+                      >
                       {project.image ? (
                         <img src={project.image} alt={project.title} />
                       ) : (
@@ -584,6 +636,7 @@ function App() {
                       </div>
                     </div>
                   </article>
+                  </Tilt>
                 ))}
               </div>
               
@@ -617,19 +670,34 @@ function App() {
         <section className="systems reveal section-shell" id="systems" data-section>
           <div className="systems-grid">
             <article className="systems-left">
-              <span className="section-tag">Systems</span>
+              <span className="section-tag">Systems & Architecture</span>
               <h2>Tools, technologies, and the way I think through products.</h2>
               <div className="skill-band-list">
                 {skillBands.map((band) => (
-                  <div className="skill-band glass-panel" key={band.title}>
-                    <strong>{band.title}</strong>
-                    <span>{band.text}</span>
-                  </div>
+                  <Tilt tiltMaxAngleX={4} tiltMaxAngleY={4} scale={1.02} key={band.title}>
+                    <div className="skill-band glass-panel">
+                      <strong>{band.title}</strong>
+                      <span>{band.text}</span>
+                    </div>
+                  </Tilt>
                 ))}
               </div>
             </article>
 
             <div className="timeline-stack">
+              <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} scale={1.01}>
+                <article className="github-card glass-panel">
+                  <span className="section-tag">Open Source Graph</span>
+                  <h3>Continuous Delivery</h3>
+                  <div className="calendar-wrapper">
+                    <GitHubCalendar 
+                      username="tusharpandey436" 
+                      colorScheme={theme === "obsidian" ? "dark" : "light"}
+                      blockSize={12}
+                    />
+                  </div>
+                </article>
+              </Tilt>
               {timeline.map((item) => (
                 <article className="timeline-card glass-panel" key={item.heading}>
                   <span>{item.label}</span>

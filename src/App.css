@@ -1,4 +1,19 @@
 :root {
+  --bg: #f4f6fb;
+  --bg-alt: #e9ecf2;
+  --surface: rgba(255, 255, 255, 0.45);
+  --surface-strong: rgba(255, 255, 255, 0.85);
+  --surface-soft: rgba(0, 0, 0, 0.03);
+  --text: #1a1f36;
+  --muted: #6b7280;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #0070f3;
+  --accent-two: #6366f1;
+  --accent-three: #ff0088;
+  --shadow: 0 30px 60px rgba(11, 25, 45, 0.06);
+}
+
+:root[data-theme="emberlight"] {
   --bg: #02060d;
   --bg-alt: #050a14;
   --surface: rgba(4, 9, 18, 0.65);
@@ -11,21 +26,6 @@
   --accent-two: #8b5cf6;
   --accent-three: #ff0088;
   --shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-}
-
-:root[data-theme="emberlight"] {
-  --bg: #f3ead9;
-  --bg-alt: #fff7ec;
-  --surface: rgba(255, 249, 240, 0.76);
-  --surface-strong: rgba(255, 250, 244, 0.94);
-  --surface-soft: rgba(61, 41, 10, 0.05);
-  --text: #1f1408;
-  --muted: #735b44;
-  --line: rgba(93, 67, 31, 0.14);
-  --accent: #cf5527;
-  --accent-two: #0f8e89;
-  --accent-three: #ffb545;
-  --shadow: 0 30px 80px rgba(123, 83, 24, 0.14);
 }
 
 * {
@@ -45,15 +45,23 @@ body {
   transition: color 0.45s ease, background-color 0.45s ease;
 }
 
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(circle at 15% 10%, rgba(207, 85, 39, 0.13), transparent 26%),
-    radial-gradient(circle at 85% 20%, rgba(15, 142, 137, 0.13), transparent 24%),
-    linear-gradient(135deg, #f3ead9 0%, #fff7ec 100%);
+    radial-gradient(circle at 15% 10%, rgba(99, 102, 241, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(255, 0, 136, 0.08), transparent 25%),
+    linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+  background-size: 200% 200%;
+  animation: aurora 20s ease infinite;
   opacity: 1;
 }
 
@@ -66,12 +74,19 @@ body::before {
     radial-gradient(circle at 15% 10%, rgba(0, 247, 255, 0.12), transparent 30%),
     radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 28%),
     linear-gradient(135deg, #02060d 0%, #050a14 100%);
-  opacity: 1;
+  opacity: 0;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 :root[data-theme="emberlight"] body::before {
-  opacity: 0;
+  opacity: 1;
+}
+
+.particles-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 a {
@@ -597,6 +612,28 @@ main {
 
 .signature-line {
   margin-top: 1.4rem;
+}
+
+/* GitHub Calendar */
+.github-card {
+  padding: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-wrapper {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: var(--surface-soft);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+:root[data-theme="emberlight"] .calendar-wrapper {
+  background: rgba(0,0,0,0.2);
+  border-color: rgba(255,255,255,0.05);
 }
 
 .principles-grid {
