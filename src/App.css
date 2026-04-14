@@ -670,7 +670,107 @@ main {
   transform: translateY(-2px);
 }
 
-/* ── Bento Grid ── */
+/* ── Carousel ── */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 24px;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.carousel-hover-btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  min-width: 60px;
+  border: none;
+  color: var(--text);
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+
+.carousel-hover-btn.prev-btn {
+  left: 0;
+  background: linear-gradient(90deg, rgba(2, 6, 13, 0.8) 0%, transparent 100%);
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.carousel-hover-btn.next-btn {
+  right: 0;
+  background: linear-gradient(270deg, rgba(2, 6, 13, 0.8) 0%, transparent 100%);
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.carousel-viewport:hover .carousel-hover-btn {
+  opacity: 0.6;
+}
+
+.carousel-hover-btn:hover {
+  opacity: 1 !important;
+}
+
+:root[data-theme="emberlight"] .carousel-hover-btn.prev-btn {
+  background: linear-gradient(90deg, rgba(243, 234, 217, 0.8) 0%, transparent 100%);
+}
+
+:root[data-theme="emberlight"] .carousel-hover-btn.next-btn {
+  background: linear-gradient(270deg, rgba(243, 234, 217, 0.8) 0%, transparent 100%);
+}
+
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator-dot:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.indicator-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* ── Bento Grid (Retained for structure) ── */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -972,14 +1072,14 @@ main {
 
 .reveal > * {
   opacity: 0;
-  transform: translateY(30px) scale(0.98);
+  transform: translateX(-40px) scale(0.98);
   filter: blur(4px);
   transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
 }
 
 .reveal.is-visible > * {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateX(0) scale(1);
   filter: blur(0);
 }
 

@@ -12,6 +12,8 @@ import {
   FiExternalLink,
   FiMoon,
   FiSun,
+  FiChevronLeft,
+  FiChevronRight,
 } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi2";
 import heroArtwork from "./Assets/home-main.svg";
@@ -23,6 +25,7 @@ import phishingImage from "./Assets/Projects/phishing_app_1776153618218.png";
 import sceneForgeImage from "./Assets/Projects/scene_forge_1776153718458.png";
 import agenticRagImage from "./Assets/Projects/agentic_rag_1776153682313.png";
 import lifeAdminImage from "./Assets/Projects/life_admin_1776153732557.png";
+import aiDataFetcherImage from "./Assets/Projects/ai_data_fetcher.png";
 
 import "./App.css";
 
@@ -188,7 +191,7 @@ const projects = [
     title: "Ai_Data_Fetcher",
     category: "AI Data Pipeline",
     year: "2024",
-    image: null,
+    image: aiDataFetcherImage,
     gradient: "linear-gradient(135deg, #0d1f3c 0%, #00f7ff44 100%)",
     blurb:
       "Automated AI data fetching and aggregation platform pulling live data through intelligent pipelines.",
@@ -221,9 +224,33 @@ function App() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [timeLabel, setTimeLabel] = useState("");
   const [pointer, setPointer] = useState({ x: 50, y: 20 });
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const projectCategories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
   const filteredProjects = activeFilter === "All" ? projects : projects.filter((p) => p.category === activeFilter);
+
+  useEffect(() => {
+    setCurrentSlideIndex(0);
+  }, [activeFilter]);
+
+  const handleNextProject = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const handlePrevProject = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+  };
+
+  useEffect(() => {
+    if (isHovered || filteredProjects.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
+    }, 3000);
+
+    return () => window.clearInterval(intervalId);
+  }, [isHovered, filteredProjects.length]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -495,60 +522,95 @@ function App() {
             ))}
           </div>
 
-          <div className="bento-grid">
-            {filteredProjects.map((project, i) => (
-              <article
-                key={project.title}
-                className={`bento-card glass-panel${i === 0 && activeFilter === "All" ? " bento-card--wide" : ""}`}
+          <div 
+            className="carousel-wrapper"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div className="carousel-viewport">
+              <div 
+                className="carousel-track" 
+                style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
               >
-                <div
-                  className="bento-thumb"
-                  style={{
-                    background: project.image
-                      ? undefined
-                      : project.gradient,
-                  }}
-                >
-                  {project.image ? (
-                    <img src={project.image} alt={project.title} />
-                  ) : (
-                    <div className="bento-no-image">
-                      <span className="bento-initial">{project.title.charAt(0)}</span>
-                      <span className="bento-category-label">{project.category}</span>
-                    </div>
-                  )}
-                  <div className="bento-overlay">
-                    <div className="bento-links">
-                      <a href={project.github} target="_blank" rel="noreferrer" className="bento-link-btn">
-                        <AiFillGithub /> Source
-                      </a>
-                      {project.live && (
-                        <a href={project.live} target="_blank" rel="noreferrer" className="bento-link-btn bento-link-btn--accent">
-                          <FiExternalLink /> Live
-                        </a>
+                {filteredProjects.map((project, i) => (
+                  <article
+                    key={project.title}
+                    className="carousel-slide bento-card glass-panel"
+                  >
+                    <div
+                      className="bento-thumb"
+                      style={{
+                        background: project.image
+                          ? undefined
+                          : project.gradient,
+                      }}
+                    >
+                      {project.image ? (
+                        <img src={project.image} alt={project.title} />
+                      ) : (
+                        <div className="bento-no-image">
+                          <span className="bento-initial">{project.title.charAt(0)}</span>
+                          <span className="bento-category-label">{project.category}</span>
+                        </div>
                       )}
+                      <div className="bento-overlay">
+                        <div className="bento-links">
+                          <a href={project.github} target="_blank" rel="noreferrer" className="bento-link-btn">
+                            <AiFillGithub /> Source
+                          </a>
+                          {project.live && (
+                            <a href={project.live} target="_blank" rel="noreferrer" className="bento-link-btn bento-link-btn--accent">
+                              <FiExternalLink /> Live
+                            </a>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="bento-body">
-                  <div className="bento-meta">
-                    {project.isFlagship ? (
-                      <span className="bento-flagship-badge">Flagship Project</span>
-                    ) : (
-                      <span className="bento-cat">{project.category}</span>
-                    )}
-                    <span className="bento-year">{project.year}</span>
-                  </div>
-                  <h3 className="bento-title">{project.title}</h3>
-                  <p className="bento-blurb">{project.blurb}</p>
-                  <div className="chip-row">
-                    {project.tech.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
+                    <div className="bento-body">
+                      <div className="bento-meta">
+                        {project.isFlagship ? (
+                          <span className="bento-flagship-badge">Flagship Project</span>
+                        ) : (
+                          <span className="bento-cat">{project.category}</span>
+                        )}
+                        <span className="bento-year">{project.year}</span>
+                      </div>
+                      <h3 className="bento-title">{project.title}</h3>
+                      <p className="bento-blurb">{project.blurb}</p>
+                      <div className="chip-row">
+                        {project.tech.map((t) => (
+                          <span key={t}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              
+              {filteredProjects.length > 1 && (
+                <>
+                  <button className="carousel-hover-btn prev-btn" onClick={handlePrevProject} aria-label="Previous project">
+                    <FiChevronLeft />
+                  </button>
+                  <button className="carousel-hover-btn next-btn" onClick={handleNextProject} aria-label="Next project">
+                    <FiChevronRight />
+                  </button>
+                </>
+              )}
+            </div>
+            
+            {filteredProjects.length > 1 && (
+              <div className="carousel-indicators">
+                {filteredProjects.map((_, index) => (
+                  <button 
+                    key={index} 
+                    className={`indicator-dot ${index === currentSlideIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentSlideIndex(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
