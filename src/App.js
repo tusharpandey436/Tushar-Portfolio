@@ -444,8 +444,8 @@ function App() {
               </div>
 
               <div className="hero-panel mini-panel accent-panel">
-                <span>Focus</span>
-                <strong>Frontend motion + AI-flavored product thinking</strong>
+                <span>Focus  </span>
+                <strong>Backend + AI-flavored product thinking</strong>
               </div>
 
               <div className="hero-panel mini-panel quote-panel">
