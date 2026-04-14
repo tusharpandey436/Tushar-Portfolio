@@ -1,16 +1,16 @@
 :root {
-  --bg: #07111f;
-  --bg-alt: #0e1b30;
-  --surface: rgba(9, 19, 35, 0.7);
-  --surface-strong: rgba(7, 15, 28, 0.9);
-  --surface-soft: rgba(255, 255, 255, 0.06);
-  --text: #f6f4ed;
-  --muted: #99a9c2;
-  --line: rgba(173, 197, 255, 0.16);
-  --accent: #ff8f53;
-  --accent-two: #4ecdc4;
-  --accent-three: #ffd166;
-  --shadow: 0 32px 90px rgba(0, 0, 0, 0.34);
+  --bg: #02060d;
+  --bg-alt: #050a14;
+  --surface: rgba(4, 9, 18, 0.65);
+  --surface-strong: rgba(6, 12, 24, 0.95);
+  --surface-soft: rgba(255, 255, 255, 0.04);
+  --text: #f0f4f8;
+  --muted: #8a9bb1;
+  --line: rgba(139, 92, 246, 0.15);
+  --accent: #00f7ff;
+  --accent-two: #8b5cf6;
+  --accent-three: #ff0088;
+  --shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
 }
 
 :root[data-theme="emberlight"] {
@@ -63,9 +63,9 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 15% 10%, rgba(255, 143, 83, 0.18), transparent 26%),
-    radial-gradient(circle at 85% 20%, rgba(78, 205, 196, 0.16), transparent 24%),
-    linear-gradient(135deg, #07111f 0%, #0e1b30 100%);
+    radial-gradient(circle at 15% 10%, rgba(0, 247, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.12), transparent 28%),
+    linear-gradient(135deg, #02060d 0%, #050a14 100%);
   opacity: 1;
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -967,15 +967,28 @@ main {
 }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 1;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.reveal > * {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), filter 0.8s ease;
 }
+
+.reveal.is-visible > * {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.reveal.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
+
 
 @keyframes marquee {
   0% {

@@ -88,42 +88,25 @@ const skillBands = [
   },
 ];
 
-const principles = [
-  {
-    title: "Bold surfaces",
-    description:
-      "I prefer interfaces with a visual opinion, not flat stacks of identical cards.",
-  },
-  {
-    title: "Useful motion",
-    description:
-      "Transitions should guide attention and support the story, not exist as decoration alone.",
-  },
-  {
-    title: "Real product thinking",
-    description:
-      "I care about the flow between idea, implementation, usability, and what a person actually feels on the page.",
-  },
-];
 
 const timeline = [
   {
-    label: "Where I am now",
-    heading: "B.Tech Graduate from Alliance University, Bangalore",
+    label: "Q1 2025 Roadmap",
+    heading: "Hybrid RAG & Evaluation Integration",
     body:
-      "Architecting scalable RAG systems and production AI pipelines, pushing beyond proof-of-concepts into robust engineering.",
+      "Successfully built and deployed production RAG pipelines utilizing Gemini 1.5 Pro, Supabase pgvector, and RAGAS metrics.",
   },
   {
-    label: "How I work",
-    heading: "Curious, iterative, and always pushing past the first version",
+    label: "Q2 2025 Roadmap",
+    heading: "Agentic AI & Modular Open-Source Frameworks",
     body:
-      "I enjoy refining things until they feel more distinct, more intentional, and more alive than the default answer.",
+      "Currently extending Tool-use planning architectures and abstracting robust multi-modal RAG systems into a modular OSS framework.",
   },
   {
-    label: "Beyond code",
-    heading: "Games, football, cricket, travelling, and energy from new ideas",
+    label: "Execution Philosophy",
+    heading: "If it's not scalable, it's not finished.",
     body:
-      "That mix of curiosity and movement shapes how I approach products too: expressive, fast, and never static.",
+      "Real engineers don't just build features; they build systems that survive production. A pipeline is only as good as its worst retrieval node.",
   },
 ];
 
@@ -373,7 +356,7 @@ function App() {
             <div className="hero-intro">
               <span className="eyebrow">
                 <HiSparkles />
-                Architecting Production AI — not just demos, real systems.
+                Tushar Portfolio.
               </span>
               <h1>
                 Intelligent systems
@@ -429,7 +412,7 @@ function App() {
                 </div>
                 <div className="metric-line">
                   <span>Open to</span>
-                  <strong>Internships and collaborations</strong>
+                  <strong>Opportunities and Collaborations</strong>
                 </div>
               </div>
 
@@ -439,7 +422,7 @@ function App() {
               </div>
 
               <div className="hero-panel mini-panel quote-panel">
-                <span>Approach</span>
+                <span>Approach </span>
                 <strong>Build something that actually feels different.</strong>
               </div>
 
@@ -461,16 +444,16 @@ function App() {
           <div className="identity-grid">
             <article className="identity-copy panel-rich">
               <span className="section-tag">Identity</span>
-              <h2>More than projects. A style of building.</h2>
+              <h2>More than features. Scalable systems.</h2>
               <p>
-                I like digital work that has a point of view. Not generic blocks
-                and default gradients, but interfaces with stronger composition,
-                better pacing, and enough personality to be remembered.
+                Real engineers do not just build isolated features—they construct comprehensive 
+                systems that survive production environments. From the initial architecture document 
+                to final deployment and monitoring, my focus remains strictly on robustness.
               </p>
               <p>
-                My interests sit at the intersection of full-stack engineering,
-                frontend craft, LLM-powered experiences, and product thinking
-                that respects both utility and aesthetics.
+                My expertise spans advanced LangChain orchestration, robust vector search optimization 
+                with pgvector, and high-performance backend routing via FastAPI and Node.js. 
+                I write code designed to scale securely and efficiently.
               </p>
               <div className="signature-line">
                 <span>From Uttarakhand</span>
@@ -488,15 +471,6 @@ function App() {
             </article>
           </div>
 
-          <div className="principles-grid">
-            {principles.map((principle) => (
-              <article className="principle-card glass-panel" key={principle.title}>
-                <span className="card-index">0{principles.indexOf(principle) + 1}</span>
-                <h3>{principle.title}</h3>
-                <p>{principle.description}</p>
-              </article>
-            ))}
-          </div>
         </section>
 
         <section className="showcase reveal section-shell" id="showcase" data-section>
