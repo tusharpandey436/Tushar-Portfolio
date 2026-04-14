@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.86f9a4cc.css",
+    "main.js": "/static/js/main.60554749.js",
+    "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
+    "static/media/photography.png": "/static/media/photography.aef121b45b6a4f132e9d.png",
+    "static/media/codeEditor.png": "/static/media/codeEditor.1b585492490c8c1cace9.png",
+    "static/media/home-main.svg": "/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
+    "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
+    "static/media/Tushar Resume2.pdf": "/static/media/Tushar Resume2.1b4ea0d7ab6fe4b0fb83.pdf",
+    "static/media/car.png": "/static/media/car.aacebd71fae8bef6392d.png",
+    "index.html": "/index.html",
+    "main.86f9a4cc.css.map": "/static/css/main.86f9a4cc.css.map",
+    "main.60554749.js.map": "/static/js/main.60554749.js.map",
+    "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86f9a4cc.css",
+    "static/js/main.60554749.js"
+  ]
+}

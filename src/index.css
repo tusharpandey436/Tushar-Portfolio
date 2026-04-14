@@ -1,0 +1,14 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(142, 246, 209, 0.28);
+  color: inherit;
+}
