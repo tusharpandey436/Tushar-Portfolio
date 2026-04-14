@@ -225,7 +225,6 @@ function App() {
   const [theme, setTheme] = useState("obsidian");
   const [activeSection, setActiveSection] = useState("home");
   const [progress, setProgress] = useState(0);
-  const [roleIndex, setRoleIndex] = useState(0);
   const [activeFilter, setActiveFilter] = useState("All");
   const [timeLabel, setTimeLabel] = useState("");
   const [pointer, setPointer] = useState({ x: 50, y: 20 });
@@ -575,7 +574,7 @@ function App() {
                 className="carousel-track" 
                 style={{ transform: `translateX(-${currentSlideIndex * 100}%)` }}
               >
-                {filteredProjects.map((project, i) => (
+                {filteredProjects.map((project) => (
                   <Tilt 
                     key={project.title} 
                     className="carousel-slide parallax-wrapper"
